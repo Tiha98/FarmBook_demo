@@ -11,8 +11,11 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+  <header>
+  <%= render 'layouts/navbar' %>
+  <%= render 'layouts/alerts' %>
+  </header>
    <main>
-    <%= render 'layouts/navbar' %>
     <%= yield %>
    </main>
   </body>
