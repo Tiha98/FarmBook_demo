@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identificationnumber: 1
+  breed: MyString
+  lactationstatus: MyString
+  lastcalvingdate: MyString
+  pregnancystatus: false
+  fathersementype: MyString
+  approxcalving: MyString
+
+two:
+  identificationnumber: 1
+  breed: MyString
+  lactationstatus: MyString
+  lastcalvingdate: MyString
+  pregnancystatus: false
+  fathersementype: MyString
+  approxcalving: MyString

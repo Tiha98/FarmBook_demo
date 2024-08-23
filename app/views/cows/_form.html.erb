@@ -1,0 +1,52 @@
+<%= form_with(model: cow) do |form| %>
+  <% if cow.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cow.errors.count, "error") %> prohibited this cow from being saved:</h2>
+
+      <ul>
+        <% cow.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :identificationnumber, style: "display: block" %>
+    <%= form.number_field :identificationnumber %>
+  </div>
+
+  <div>
+    <%= form.label :breed, style: "display: block" %>
+    <%= form.text_field :breed %>
+  </div>
+
+  <div>
+    <%= form.label :lactationstatus, style: "display: block" %>
+    <%= form.text_field :lactationstatus %>
+  </div>
+
+  <div>
+    <%= form.label :lastcalvingdate, style: "display: block" %>
+    <%= form.text_field :lastcalvingdate %>
+  </div>
+
+  <div>
+    <%= form.label :pregnancystatus, style: "display: block" %>
+    <%= form.check_box :pregnancystatus %>
+  </div>
+
+  <div>
+    <%= form.label :fathersementype, style: "display: block" %>
+    <%= form.text_field :fathersementype %>
+  </div>
+
+  <div>
+    <%= form.label :approxcalving, style: "display: block" %>
+    <%= form.text_field :approxcalving %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
