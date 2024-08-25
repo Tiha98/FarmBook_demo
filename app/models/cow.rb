@@ -6,6 +6,7 @@ class Cow < ApplicationRecord
   
     validates :fathersementype, presence: true, if: :pregnant?
     validates :approxcalving, presence: true, if: :pregnant?
+    belongs_to :user
   
     private
   

@@ -1,5 +1,6 @@
 class CowsController < ApplicationController
   before_action :set_cow, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /cows or /cows.json
   def index
@@ -12,9 +13,8 @@ class CowsController < ApplicationController
 
   # GET /cows/new
   def new
-    @cow = Cow.new
+    @cow = Cow.new(user_id: current_user.email)
   end
-
   # GET /cows/1/edit
   def edit
   end
@@ -22,7 +22,7 @@ class CowsController < ApplicationController
   # POST /cows or /cows.json
   def create
     @cow = Cow.new(cow_params)
-
+    @cow.user = current_user
     respond_to do |format|
       if @cow.save
         format.html { redirect_to cow_url(@cow), notice: "Cow was successfully created." }

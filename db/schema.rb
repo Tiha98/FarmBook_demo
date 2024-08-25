@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_23_135209) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_25_171527) do
   create_table "cows", force: :cascade do |t|
     t.integer "identificationnumber"
     t.string "breed"
@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_23_135209) do
     t.string "approxcalving"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_cows_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,4 +37,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_23_135209) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cows", "users"
 end
