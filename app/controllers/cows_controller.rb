@@ -4,7 +4,7 @@ class CowsController < ApplicationController
 
   # GET /cows or /cows.json
   def index
-    @cows = Cow.all
+    @cows = current_user.cows.all
   end
 
   # GET /cows/1 or /cows/1.json
@@ -14,7 +14,7 @@ class CowsController < ApplicationController
 
   # GET /cows/new
   def new
-    @cow = Cow.new(user_id: current_user.email)
+    @cow = Cow.new(user_id: current_user.id)
   end
   # GET /cows/1/edit
   def edit
