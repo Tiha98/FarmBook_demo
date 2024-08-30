@@ -1,0 +1,15 @@
+<div class="note-<%= note.id %> container"
+  style="border: 1px solid black; padding: 1em; margin: 1em;">
+ <%= note.user.name %><br />
+ <span>Posted <%= time_ago_in_words(note.created_at) %></span>
+ <br />
+ <span> <%= note.created_at %></span>
+ <% if current_user == note.user %>
+  <div class="button-group dloat-end">
+   <%= button_to "Delete", [cow, note], class:"btn btn-danger", method: :delete %>
+  </div>
+<% end %>
+   <hr />
+   <p>Your note:</p>
+   <%= note.body %>
+</div>

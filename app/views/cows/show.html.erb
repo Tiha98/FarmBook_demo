@@ -8,3 +8,9 @@
 
   <%= button_to "Destroy this cow", @cow, method: :delete %>
 </div>
+<div class="container">
+  <%= render 'notes/form', cow: @cow %>
+  <% @notes.each do |note| %>
+    <%= render 'notes/note', cow: @cow, note: note %>
+  <% end %>
+</div>

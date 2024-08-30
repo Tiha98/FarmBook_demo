@@ -9,6 +9,7 @@ class CowsController < ApplicationController
 
   # GET /cows/1 or /cows/1.json
   def show
+    @notes = @cow.notes.order(created_at: :desc)
   end
 
   # GET /cows/new
