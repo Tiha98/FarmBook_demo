@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location_name: MyString
+  location_latitude: 1.5
+  location_longitude: 1.5
+  current_crop: MyString
+  sowing_date: 2024-09-02
+  harvest_date: 2024-09-02
+  size: 1.5
+  fertilizer: false
+  fertilizer_type: MyString
+  fertilizer_usage: MyText
+  leased: false
+  leasing_end_date: 2024-09-02
+
+two:
+  name: MyString
+  location_name: MyString
+  location_latitude: 1.5
+  location_longitude: 1.5
+  current_crop: MyString
+  sowing_date: 2024-09-02
+  harvest_date: 2024-09-02
+  size: 1.5
+  fertilizer: false
+  fertilizer_type: MyString
+  fertilizer_usage: MyText
+  leased: false
+  leasing_end_date: 2024-09-02

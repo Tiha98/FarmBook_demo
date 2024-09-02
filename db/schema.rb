@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_100240) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_02_092305) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -63,6 +63,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_100240) do
     t.index ["user_id"], name: "index_cows_on_user_id"
   end
 
+  create_table "fields", force: :cascade do |t|
+    t.string "name"
+    t.string "location_name"
+    t.float "location_latitude"
+    t.float "location_longitude"
+    t.string "current_crop"
+    t.date "sowing_date"
+    t.date "harvest_date"
+    t.float "size"
+    t.boolean "fertilizer"
+    t.string "fertilizer_type"
+    t.text "fertilizer_usage"
+    t.boolean "leased"
+    t.date "leasing_end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_fields_on_user_id"
+  end
+
   create_table "notes", force: :cascade do |t|
     t.integer "cow_id", null: false
     t.integer "user_id", null: false
@@ -88,6 +108,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_100240) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cows", "users"
+  add_foreign_key "fields", "users"
   add_foreign_key "notes", "cows"
   add_foreign_key "notes", "users"
 end
