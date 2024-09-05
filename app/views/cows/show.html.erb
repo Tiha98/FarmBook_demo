@@ -1,17 +1,19 @@
-  <p style="color: green"><%= notice %></p>
+ <div class="container">
+ <p style="color: green"><%= notice %></p>
 
   <%= render @cow %>
-
+  <br>
   <div>
-    <%= link_to "Edit this cow", edit_cow_path(@cow) %> |
-    <%= link_to "Back to cows", cows_path %>
-
-    <%= button_to "Destroy this cow", @cow, method: :delete %>
+    <%= link_to "Back to cows", cows_path, class:"btn btn-outline-primary" %> 
+    <%= link_to "Edit this cow", edit_cow_path(@cow), class:"btn btn-outline-secondary" %> 
+    <%= button_to "Destroy this cow", @cow, class:"btn btn-outline-danger", method: :delete %>
+  </div>
   </div>
   <div class="container">
-    <%= render 'notes/form', cow: @cow %>
-    <% @notes.each do |note| %>
-      <%= render 'notes/note', cow: @cow, note: note %>
-    <% end %>
+  <%= render 'notes/form', noteable: @noteable %>
+  <% @notes.each do |note| %>
+    <%= render 'notes/note', noteable: @noteable, note: note %>
+  <% end %>
+  </div>
   </div>
 

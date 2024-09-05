@@ -9,6 +9,8 @@ class FieldsController < ApplicationController
 
   # GET /fields/1 or /fields/1.json
   def show
+    @noteable = @field
+    @notes = @field.notes.order(created_at: :desc)
   end
 
   # GET /fields/new

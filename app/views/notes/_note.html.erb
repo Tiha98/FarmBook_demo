@@ -6,7 +6,7 @@
  <span> <%= note.created_at %></span>
  <% if current_user == note.user %>
   <div class="button-group dloat-end">
-   <%= button_to "Delete", [cow, note], class:"btn btn-danger", method: :delete %>
+   <%= button_to "Delete", [noteable, note], class:"btn btn-outline-danger", method: :delete %>
   </div>
 <% end %>
    <hr />

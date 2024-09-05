@@ -35,18 +35,17 @@
     <%= form.label :pregnancystatus, style: "display: block" %>
     <%= form.check_box :pregnancystatus %>
   </div>
-
+  <% if cow.pregnancystatus %>
   <div>
     <%= form.label :fathersementype, style: "display: block" %>
     <%= form.text_field :fathersementype %>
   </div>
-
-  <div>
+   <div>
     <%= form.label :approxcalving, style: "display: block" %>
     <%= form.text_field :approxcalving %>
-  </div>
-
+   </div>
+  <% end %>
   <div>
-    <%= form.submit %>
+   <%= form.submit %>
   </div>
 <% end %>

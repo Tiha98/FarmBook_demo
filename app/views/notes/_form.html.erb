@@ -1,6 +1,6 @@
-<%= form_with(model: [cow, cow.notes.build]) do |f| %>
+<%= form_with(model: [noteable, noteable.notes.build]) do |f| %>
     <div class="form-control">
       <%= f.rich_text_area :body %>
-      <%= f.submit "Reply", class: "btn btn-primary mt-1" %>
+      <%= f.submit "Reply", class: "btn btn-outline-primary mt-1" %>
     </div>
 <% end %>

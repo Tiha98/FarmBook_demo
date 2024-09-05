@@ -55,7 +55,7 @@
     <%= form.label :fertilizer, style: "display: block" %>
     <%= form.check_box :fertilizer %>
   </div>
-
+  <% if field.fertilizer %>
   <div>
     <%= form.label :fertilizer_type, style: "display: block" %>
     <%= form.text_field :fertilizer_type %>
@@ -65,17 +65,17 @@
     <%= form.label :fertilizer_usage, style: "display: block" %>
     <%= form.text_area :fertilizer_usage %>
   </div>
-
+  <% end %>
   <div>
     <%= form.label :leased, style: "display: block" %>
     <%= form.check_box :leased %>
   </div>
-
+  <% if  field.leased %>
   <div>
     <%= form.label :leasing_end_date, style: "display: block" %>
     <%= form.date_field :leasing_end_date %>
   </div>
-
+  <% end %>
   <div>
     <%= form.submit %>
   </div>

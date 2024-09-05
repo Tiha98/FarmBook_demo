@@ -1,14 +1,41 @@
-<p style="color: green"><%= notice %></p>
+<h1> Your Cow's </h1>
+<div class="container">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Breed</th>
+        <th scope="col">Lactation Status</th>
+        <th scope="col">Last Calving Date</th>
+        <th scope="col">Pregnancy Status</th>
+        <th scope="col">Fathers Semen Type</th>
+        <th scope="col">Approximatice Calving Date</th>
+        <th scope="col">Button's</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cows.each do |cow| %>
+        <tr>
+          <th scope="row"><%= cow.id %></th>
+          <td><%= cow.identificationnumber %></td>
+          <td><%= cow.breed %></td>
+          <td><%= cow.lactationstatus %></td>
+          <td><%= cow.lastcalvingdate %></td>
+          <td><%= cow.pregnancystatus ? 'Pregnant' : 'Not Pregnant' %></td>
+          <td><%= cow.fathersementype %></td>
+          <td><%= cow.approxcalving %></td>
+          <td>
+            <%= link_to "Show", cow, class: "btn btn-outline-primary" %> <br/>
+            <%= link_to "Edit", edit_cow_path(cow), class: "btn btn-outline-secondary" %>  <br/>
+            <%= button_to "Destroy", cow, class: "btn btn-outline-danger", method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <div class="d-grid gap-2">
+    <%= link_to "New Cow", new_cow_path, class: "btn btn-outline-success" %>
+  </div>
 
-<h1>Cows</h1>
-
-<div id="cows">
-  <% @cows.each do |cow| %>
-    <%= render cow %>
-    <p>
-      <%= link_to "Show this cow", cow %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New cow", new_cow_path %>

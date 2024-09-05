@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_092305) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_05_072813) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -84,11 +84,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_092305) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.integer "cow_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cow_id"], name: "index_notes_on_cow_id"
+    t.string "noteable_type"
+    t.integer "noteable_id"
+    t.index ["noteable_type", "noteable_id"], name: "index_notes_on_noteable"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
@@ -109,6 +110,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_092305) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cows", "users"
   add_foreign_key "fields", "users"
-  add_foreign_key "notes", "cows"
   add_foreign_key "notes", "users"
 end

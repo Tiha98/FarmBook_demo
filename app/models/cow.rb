@@ -7,7 +7,7 @@ class Cow < ApplicationRecord
     validates :fathersementype, presence: true, if: :pregnant?
     validates :approxcalving, presence: true, if: :pregnant?
     belongs_to :user
-    has_many :notes, dependent: :destroy
+    has_many :notes, as: :noteable, dependent: :destroy
     private
   
     def pregnant?
