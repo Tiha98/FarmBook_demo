@@ -23,12 +23,12 @@
 
   <div>
     <%= form.label :lactationstatus, style: "display: block" %>
-    <%= form.text_field :lactationstatus %>
+    <%= form.check_box :lactationstatus %>
   </div>
 
   <div>
     <%= form.label :lastcalvingdate, style: "display: block" %>
-    <%= form.text_field :lastcalvingdate %>
+    <%= form.date_field :lastcalvingdate %>
   </div>
 
   <div>
@@ -42,7 +42,7 @@
   </div>
    <div>
     <%= form.label :approxcalving, style: "display: block" %>
-    <%= form.text_field :approxcalving %>
+    <%= form.date_field :approxcalving %>
    </div>
   <% end %>
   <div>
