@@ -11,41 +11,44 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  <h5>Add your cow's data:</h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
     <%= form.label :identificationnumber, style: "display: block" %>
     <%= form.number_field :identificationnumber %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :breed, style: "display: block" %>
     <%= form.text_field :breed %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :lactationstatus, style: "display: block" %>
     <%= form.check_box :lactationstatus %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :lastcalvingdate, style: "display: block" %>
     <%= form.date_field :lastcalvingdate %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :pregnancystatus, style: "display: block" %>
     <%= form.check_box :pregnancystatus %>
-  </div>
-  <% if cow.pregnancystatus %>
-  <div>
+    </p>
+    <% if cow.pregnancystatus %>
+    <p class="card-text">
     <%= form.label :fathersementype, style: "display: block" %>
     <%= form.text_field :fathersementype %>
-  </div>
-   <div>
+    </p>
+    <p class="card-text">
     <%= form.label :approxcalving, style: "display: block" %>
     <%= form.date_field :approxcalving %>
-   </div>
-  <% end %>
-  <div>
-   <%= form.submit %>
+    </p>
+    <% end %>
+    <p class="card-text">
+       <%= form.submit  class: "btn btn-outline-success" %>
+    </p>
+  </div>
   </div>
 <% end %>

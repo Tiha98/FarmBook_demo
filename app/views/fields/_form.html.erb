@@ -11,72 +11,73 @@
     </div>
   <% end %>
 
-  <div>
+
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+  <h5>Add your land's data:</h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :location_name, style: "display: block" %>
     <%= form.text_field :location_name %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :location_latitude, style: "display: block" %>
     <%= form.text_field :location_latitude %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :location_longitude, style: "display: block" %>
     <%= form.text_field :location_longitude %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :current_crop, style: "display: block" %>
     <%= form.text_field :current_crop %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :sowing_date, style: "display: block" %>
     <%= form.date_field :sowing_date %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :harvest_date, style: "display: block" %>
     <%= form.date_field :harvest_date %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :size, style: "display: block" %>
     <%= form.text_field :size %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :fertilizer, style: "display: block" %>
     <%= form.check_box :fertilizer %>
-  </div>
-  <% if field.fertilizer %>
-  <div>
+    </p>
+    <% if field.fertilizer %>
+    <p class="card-text">
     <%= form.label :fertilizer_type, style: "display: block" %>
     <%= form.text_field :fertilizer_type %>
-  </div>
-
-  <div>
+    </p>
+    <p class="card-text">
     <%= form.label :fertilizer_usage, style: "display: block" %>
     <%= form.text_area :fertilizer_usage %>
-  </div>
-  <% end %>
-  <div>
+    </p>
+    <% end %>
+    <p class="card-text">
     <%= form.label :leased, style: "display: block" %>
     <%= form.check_box :leased %>
-  </div>
-  <% if  field.leased %>
-  <div>
+    </p>
+    <% if field.leased %>
+    <p class="card-text">
     <%= form.label :leasing_end_date, style: "display: block" %>
     <%= form.date_field :leasing_end_date %>
+    </p>
+    <% end %>
+    <p class="card-text">
+    </p>
+    <p class="card-text">
+       <%= form.submit  class: "btn btn-outline-success" %>
+    </p>
   </div>
-  <% end %>
-  <div>
-    <%= form.submit %>
   </div>
 <% end %>
