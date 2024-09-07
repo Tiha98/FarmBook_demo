@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :fields
+  
+  resources :notifications, only: [:index]
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'

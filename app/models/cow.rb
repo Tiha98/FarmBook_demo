@@ -9,6 +9,13 @@ class Cow < ApplicationRecord
     validate :validate_lastvalvingdate
     belongs_to :user
     has_many :notes, as: :noteable, dependent: :destroy
+
+    def approx_calving_within_a_week?
+      return false unless approxcalving.present?
+  
+      approxcalving <= Date.today + 7.days
+    end
+    
     private
   
     def pregnant?

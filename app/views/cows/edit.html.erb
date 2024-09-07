@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Editing cow</h1>
 
 <%= render "form", cow: @cow %>
@@ -5,6 +6,7 @@
 <br>
 
 <div>
-  <%= link_to "Show this cow", @cow %> |
-  <%= link_to "Back to cows", cows_path %>
+  <%= link_to "Show this cow", @cow, class:"btn btn-outline-primary" %> |
+  <%= link_to "Back to cows", cows_path, class:"btn btn-outline-secondary" %>
+</div>
 </div>

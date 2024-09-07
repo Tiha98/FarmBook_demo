@@ -1,0 +1,23 @@
+
+<div class="dropdown">
+  <a class="dropdown-toggle" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    Notifications
+    <% if user_signed_in? && (@calving_notifications.any? || @harvest_notifications.any?) %>
+      <span class="badge bg-danger"><%= @calving_notifications.count + @harvest_notifications.count %></span>
+    <% end %>
+  </a>
+  <% if user_signed_in? %>
+    <ul class="dropdown-menu" aria-labelledby="notificationsDropdown">
+      <% @calving_notifications.each do |cow| %>
+        <li><a class="dropdown-item" href="<%= cow_path(cow) %>">
+          Cow with ID <%= cow.identificationnumber %> is expected to calve within a week.
+        </a></li>
+      <% end %>
+      <% @harvest_notifications.each do |field| %>
+        <li><a class="dropdown-item" href="<%= field_path(field) %>">
+          Field <%= field.name %>  <br/> is expected to be <br/> harvested within a week.
+        </a></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
