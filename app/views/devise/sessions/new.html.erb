@@ -1,12 +1,17 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+<br/>
+<div class="container">
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    <h5>Log in</h5>
+  </div>
+  <div class="card-body">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <p class="card-text">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <p/>
 
-  <div class="field">
+  <div class="card-text">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
@@ -19,7 +24,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-outline-success" %>
   </div>
 <% end %>
 
