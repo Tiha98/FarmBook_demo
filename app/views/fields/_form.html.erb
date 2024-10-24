@@ -1,83 +1,129 @@
-<%= form_with(model: field) do |form| %>
-  <% if field.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(field.errors.count, "error") %> prohibited this field from being saved:</h2>
+<div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem] pointer-events-none" aria-hidden="true">
+    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Add your arable land!</h2>
+    <p class="mt-2 text-lg leading-8 text-gray-600">Please fill out the following form with your property’s details.</p>
+  </div>
+  <br>
+  <%= form_with(model: field) do |form| %>
+    <br>
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div>
+        <%= form.label :name, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :name, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:name, field.errors) %>
+        </div>
+      </div>
 
-      <ul>
-        <% field.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+      <div>
+        <%= form.label :location_name, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :location_name, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+           <%= error_messages_for(:location_name, field.errors) %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :location_latitude, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :location_latitude, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>           
+          <%= error_messages_for(:location_latitude, field.errors) %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :location_longitude, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :location_longitude, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:location_longitude, field.errors) %>
+       </div>
+      </div>
+
+      <div class="sm:col-span-2">
+        <%= form.label :current_crop, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :current_crop, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:current_crop, field.errors) %>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <div class="sm:col-span-2">
+          <%= form.label :sowing_date, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+          <div class="mt-2.5">
+            <%= form.date_field :sowing_date, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+            <%= error_messages_for(:location_longitude, field.errors) %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <%= form.label :harvest_date, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+          <div class="mt-2.5">
+            <%= form.date_field :harvest_date, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+            <%= error_messages_for(:harvest_date, field.errors) %>
+          </div>
+        </div>
+      </div>
+      <div>
+        <%= form.label :size, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :size, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:size, field.errors) %>
+        </div>
+      </div>
+
+      <div class="sm:col-span-2">
+        <div class="flex items-center">
+          <%= form.check_box :fertilizer, class: "h-4 w-4 text-indigo-600 border-gray-300 rounded" %>
+          <label for="fertilizer" class="ml-3 block text-sm font-semibold leading-6 text-gray-900 text-center">Fertilizer Used</label>
+        </div>
+      </div>
+
+      <% if field.fertilizer %>
+      <div class="sm:col-span-2">
+        <%= form.label :fertilizer_type, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_field :fertilizer_type, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:fertilizer_type, field.errors) %>
+        </div>
+      </div>
+
+      <div class="sm:col-span-2">
+        <%= form.label :fertilizer_usage, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.text_area :fertilizer_usage, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:fertilizer_usage, field.errors) %>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="sm:col-span-2">
+        <div class="flex items-center">
+          <%= form.check_box :leased, class: "h-4 w-4 text-indigo-600 border-gray-300 rounded" %>
+          <label for="leased" class="ml-3 block text-sm font-semibold leading-6 text-gray-900 text-center">Leased</label>
+        </div>
+      </div>
+      
+      <% if field.leased %>
+      <div class="sm:col-span-2">
+        <%= form.label :leasing_end_date, class: "block text-sm font-semibold leading-6 text-gray-900 text-center" %>
+        <div class="mt-2.5">
+          <%= form.date_field :leasing_end_date, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <%= error_messages_for(:leasing_end_date, field.errors) %>
+        </div>
+      </div>
+      <% end %>
+      <div class="sm:col-span-2 grid place-items-center">
+        <%= form.submit "Submit", class: "mt-10 block w-3/4 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+        <br>
+        <%= link_to "Back to fields", fields_path, class:"py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" %>
+        <br>
+        <% if field.id %>
+        <%= link_to "Show this field", field, class:"py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"%> 
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
-
-
-  <div class="card" style="width: 18rem;">
-  <div class="card-header">
-  <h5>Add your land's data:</h5>
-  </div>
-  <div class="card-body">
-    <p class="card-text">
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-    </p>
-    <p class="card-text">
-    <%= form.label :location_name, style: "display: block" %>
-    <%= form.text_field :location_name %>
-    </p>
-    <p class="card-text">
-    <%= form.label :location_latitude, style: "display: block" %>
-    <%= form.text_field :location_latitude %>
-    </p>
-    <p class="card-text">
-    <%= form.label :location_longitude, style: "display: block" %>
-    <%= form.text_field :location_longitude %>
-    </p>
-    <p class="card-text">
-    <%= form.label :current_crop, style: "display: block" %>
-    <%= form.text_field :current_crop %>
-    </p>
-    <p class="card-text">
-    <%= form.label :sowing_date, style: "display: block" %>
-    <%= form.date_field :sowing_date %>
-    </p>
-    <p class="card-text">
-    <%= form.label :harvest_date, style: "display: block" %>
-    <%= form.date_field :harvest_date %>
-    </p>
-    <p class="card-text">
-    <%= form.label :size, style: "display: block" %>
-    <%= form.text_field :size %>
-    </p>
-    <p class="card-text">
-    <%= form.label :fertilizer, style: "display: block" %>
-    <%= form.check_box :fertilizer %>
-    </p>
-    <% if field.fertilizer %>
-    <p class="card-text">
-    <%= form.label :fertilizer_type, style: "display: block" %>
-    <%= form.text_field :fertilizer_type %>
-    </p>
-    <p class="card-text">
-    <%= form.label :fertilizer_usage, style: "display: block" %>
-    <%= form.text_area :fertilizer_usage %>
-    </p>
-    <% end %>
-    <p class="card-text">
-    <%= form.label :leased, style: "display: block" %>
-    <%= form.check_box :leased %>
-    </p>
-    <% if field.leased %>
-    <p class="card-text">
-    <%= form.label :leasing_end_date, style: "display: block" %>
-    <%= form.date_field :leasing_end_date %>
-    </p>
-    <% end %>
-    <p class="card-text">
-    </p>
-    <p class="card-text">
-       <%= form.submit  class: "btn btn-outline-success" %>
-    </p>
-  </div>
-  </div>
-<% end %>
+</div>

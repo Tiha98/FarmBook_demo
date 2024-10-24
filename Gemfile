@@ -69,4 +69,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'faker'
+gem 'kaminari'
 gem 'devise'
+gem "ransack", "~> 4.2"
+
+gem "tailwindcss-rails", "~> 3.0"

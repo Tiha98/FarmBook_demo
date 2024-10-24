@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
     before_action :load_notifications
-
     private
   
     def load_notifications
@@ -10,3 +9,4 @@ class ApplicationController < ActionController::Base
       end
     end
 end
+

@@ -1,50 +1,80 @@
-<h1> Your Arable Land's</h1>
-<div class="container">
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Location Name</th>
-        <th scope="col">Location Latitude</th>
-        <th scope="col">Current Crop</th>
-        <th scope="col">Sowing Date</th>
-        <th scope="col">Harvest Date</th>
-        <th scope="col">Size</th>
-        <th scope="col">Fertilizer</th>
-        <th scope="col">Fertilizer Type</th>
-        <th scope="col">Fertilizer Usage</th>
-        <th scope="col">Leased</th>
-        <th scope="col">End of Leasing</th>
-        <th scope="col">Button's</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @fields.each do |field| %>
-        <tr>
-          <th scope="row"><%= field.id %></th>
-          <td><%= field.name %></td>
-          <td><%= field.location_name %></td>
-          <td><%= field.location_latitude %></td>
-          <td><%= field.current_crop %></td>
-          <td><%= field.sowing_date %></td>
-          <td><%= field.harvest_date %></td>
-          <td><%= field.size %></td>
-          <td><%= field.fertilizer ? 'Yes' : 'No' %></td>
-          <td><%= field.fertilizer_type %></td>
-          <td><%= field.fertilizer_usage %></td>
-          <td><%= field.leased ? 'Yes' : 'No' %></td>
-          <td><%= field.leasing_end_date %></td>
-          <td>
-            <%= link_to "Show", field, class: "btn btn-outline-primary" %> 
-            <%= link_to "Edit", edit_field_path(field), class: "btn btn-outline-secondary" %> 
-            <%= button_to "Destroy", field, class: "btn btn-outline-danger", method: :delete %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <hr>
-  <div class="d-grid gap-2">
-    <%= link_to "New field", new_field_path, class: "btn btn-outline-success" %>
-  </div>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="p-4">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Location Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Location Latitude
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Current Crop
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Sowing Date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Harvest Date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Size
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Fertilizer
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Fertilizer Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Fertilizer Usage
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Leased
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    End of Leasing
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @fields.each do |field| %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-4 p-4"><%= field.id %></td>
+                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= field.name %></td>
+                <td class="px-6 py-4"><%= field.location_name %></td>
+                <td class="px-6 py-4"><%= field.location_latitude %></td>
+                <td class="px-6 py-4"><%= field.current_crop %></td>
+                <td class="px-6 py-4"><%= field.sowing_date %></td>
+                <td class="px-6 py-4"><%= field.harvest_date %></td>
+                <td class="px-6 py-4"><%= field.size %></td>
+                <td class="px-6 py-4"><%= field.fertilizer ? 'Yes' : 'No' %></td>
+                <td class="px-6 py-4"><%= field.fertilizer_type %></td>
+                <td class="px-6 py-4"><%= field.fertilizer_usage %></td>
+                <td class="px-6 py-4"><%= field.leased ? 'Yes' : 'No' %></td>
+                <td class="px-6 py-4"><%= field.leasing_end_date %></td>
+                <td class="px-6 py-4">
+                    <a href="<%= field_path(field) %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a> |
+                    <a href="<%= edit_field_path(field) %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> |
+                    <%= button_to "Destroy", field, method: :delete, class: "font-medium text-red-600 dark:text-red-500 hover:underline" %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <div class="flex justify-center mt-4">
+        <%= paginate @fields %>
+    </div>
+    <div class="flex justify-center">
+        <%= link_to "New Field", new_field_path, class: "mt-10 block w-1/4 justify-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+    </div>
+</div>    

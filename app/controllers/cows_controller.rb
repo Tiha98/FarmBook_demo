@@ -5,6 +5,7 @@ class CowsController < ApplicationController
   # GET /cows or /cows.json
   def index
     @cows = current_user.cows.all
+    @q = Cow.ransack(params[:q])
   end
 
   # GET /cows/1 or /cows/1.json

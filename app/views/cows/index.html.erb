@@ -1,41 +1,40 @@
-<h1> Your Cow's </h1>
-<div class="container">
-  <table class="table table-bordered table-hover">
-    <thead>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">ID</th>
-        <th scope="col">Breed</th>
-        <th scope="col">Lactation Status</th>
-        <th scope="col">Last Calving Date</th>
-        <th scope="col">Pregnancy Status</th>
-        <th scope="col">Fathers Semen Type</th>
-        <th scope="col">Approximatice Calving Date</th>
-        <th scope="col">Button's</th>
+        <th scope="col" class="p-4">#</th>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Breed</th>
+        <th scope="col" class="px-6 py-3">Lactation Status</th>
+        <th scope="col" class="px-6 py-3">Last Calving Date</th>
+        <th scope="col" class="px-6 py-3">Pregnancy Status</th>
+        <th scope="col" class="px-6 py-3">Father's Semen Type</th>
+        <th scope="col" class="px-6 py-3">Approximate Calving Date</th>
+        <th scope="col" class="px-6 py-3">Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @cows.each do |cow| %>
-        <tr>
-          <th scope="row"><%= cow.id %></th>
-          <td><%= cow.identificationnumber %></td>
-          <td><%= cow.breed %></td>
-          <td><%= cow.lactationstatus %></td>
-          <td><%= cow.lastcalvingdate %></td>
-          <td><%= cow.pregnancystatus ? 'Pregnant' : 'Not Pregnant' %></td>
-          <td><%= cow.fathersementype %></td>
-          <td><%= cow.approxcalving %></td>
-          <td>
-            <%= link_to "Show", cow, class: "btn btn-outline-primary" %> <br/>
-            <%= link_to "Edit", edit_cow_path(cow), class: "btn btn-outline-secondary" %>  <br/>
-            <%= button_to "Destroy", cow, class: "btn btn-outline-danger", method: :delete %>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="w-4 p-4"><%= cow.id %></td>
+          <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= cow.identificationnumber %></td>
+          <td class="px-6 py-4"><%= cow.breed %></td>
+          <td class="px-6 py-4"><%= cow.lactationstatus %></td>
+          <td class="px-6 py-4"><%= cow.lastcalvingdate %></td>
+          <td class="px-6 py-4"><%= cow.pregnancystatus ? 'Pregnant' : 'Not Pregnant' %></td>
+          <td class="px-6 py-4"><%= cow.fathersementype %></td>
+          <td class="px-6 py-4"><%= cow.approxcalving %></td>
+          <td class="px-6 py-4">
+            <%= link_to "Show", cow, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %> |
+            <%= link_to "Edit", edit_cow_path(cow), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %> |
+            <%= button_to "Destroy", cow, method: :delete, class: "font-medium text-red-600 dark:text-red-500 hover:underline" %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <hr>
-  <div class="d-grid gap-2">
-    <%= link_to "New Cow", new_cow_path, class: "btn btn-outline-success" %>
-  </div>
 
+  <div class="flex justify-center mt-10">
+    <%= link_to "New Cow", new_cow_path, class: "block w-1/4 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+  </div>
+</div>

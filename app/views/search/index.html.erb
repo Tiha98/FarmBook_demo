@@ -1,0 +1,18 @@
+<% if q = nil %>
+<p> No results </p>
+<% else %>
+<%= @cows.each do |cow| %>
+  <p></p>
+<%= cow.identificationnumber %> <br>
+<%= cow.breed %> <br>
+</p>
+<% end %>
+<br>
+<%= @fields.each do |field| %>
+  <p> </p>
+  <%= field.name %> <br>
+  <%= field.location_name %> <br>
+  <%= field.current_crop %>
+  </p>
+  <% end %>
+<%end%>

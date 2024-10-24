@@ -1,9 +1,11 @@
 class Field < ApplicationRecord
+    validates :name, presence: true     
     validates :location_latitude, presence: true, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
     validates :location_longitude, presence: true, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
     validates :location_name, presence: true
     validates :size, numericality: { greater_than_or_equal_to: 1 }
     validates :fertilizer_type, presence: true, if: :fertilizer
+    validates :fertilizer_usage, presence: true, if: :fertilizer
     validates :leasing_end_date, presence: true, if: :leased
     validate :sowing_date_cannot_be_in_the_future
     validate :harvest_date_cannot_be_in_the_past
@@ -11,6 +13,12 @@ class Field < ApplicationRecord
     has_many :notes, as: :noteable, dependent: :destroy
     belongs_to :user
 
+    def self.ransackable_associations(auth_object = nil)
+      ["notes", "user"]
+    end
+    def self.ransackable_attributes(auth_object = nil)
+    ["name","location_name", "current_crop"]
+    end
     def harvest_within_a_week?
       return false unless harvest_date.present?
   

@@ -4,7 +4,8 @@ class FieldsController < ApplicationController
 
   # GET /fields or /fields.json
   def index
-    @fields = current_user.fields.all
+    @fields = current_user.fields.all.page(params[:page]).per(10)
+    @q = Field.ransack(params[:q])
   end
 
   # GET /fields/1 or /fields/1.json

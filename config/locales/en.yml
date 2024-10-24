@@ -28,4 +28,59 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        field:
+          attributes:
+            name:
+              blank: "The field name cannot be left blank. Please provide a name."
+            location_latitude:
+              blank: "The latitude of the location is required."
+              not_a_number: "The latitude must be a valid number between -90 and 90."
+              greater_than_or_equal_to: "The latitude must be greater than or equal to -90."
+              less_than_or_equal_to: "The latitude must be less than or equal to 90."
+            location_longitude:
+              blank: "The longitude of the location is required."
+              not_a_number: "The longitude must be a valid number between -180 and 180."
+              greater_than_or_equal_to: "The longitude must be greater than or equal to -180."
+              less_than_or_equal_to: "The longitude must be less than or equal to 180."
+            location_name:
+              blank: "The location name cannot be blank. Please provide a valid location."
+            size:
+              not_a_number: "The size must be a valid number."
+              greater_than_or_equal_to: "The field size must be at least 1 hectare."
+            fertilizer_type:
+              blank: "Please specify the type of fertilizer."
+            fertilizer_usage:
+              blank: "Please provide the amount of fertilizer used."
+            leasing_end_date:
+              blank: "Please provide the leasing end date if the field is leased."
+              in_the_past: "The leasing end date cannot be in the past. Please enter a valid date."
+            sowing_date:
+              in_the_future: "The sowing date cannot be in the future."
+            harvest_date:
+              in_the_past: "The harvest date cannot be in the past. Please enter a valid date."
+
+
+en:
+  activerecord:
+    errors:
+      models:
+        cow:
+          attributes:
+            identificationnumber:
+              blank: "Identification number cannot be blank."
+              wrong_length: "Identification number must be exactly 12 characters long."
+              too_short: "Identification number must be at least 12 characters long." # Rails default kulcs
+              too_long: "Identification number must be at most 12 characters long."   # Rails default kulcs
+            breed:
+              blank: "Breed cannot be blank. Please specify the cow's breed."
+            lastcalvingdate:
+              blank: "Last calving date is required."
+              in_the_future: "The last calving date can't be in the future."
+            fathersementype:
+              blank: "Please specify the father's semen type if the cow is pregnant."
+            approxcalving:
+              blank: "Approximate calving date is required if the cow is pregnant."
+              in_the_past: "Approximate calving date can't be in the past."
