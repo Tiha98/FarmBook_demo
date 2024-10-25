@@ -73,5 +73,6 @@ gem 'faker'
 gem 'kaminari'
 gem 'devise'
 gem "ransack", "~> 4.2"
-
+gem 'view_component'  
+gem "chartkick"
 gem "tailwindcss-rails", "~> 3.0"

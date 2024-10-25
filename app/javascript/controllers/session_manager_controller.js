@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-    static targets = ["menuButton", "dropdownMenu"];
+    static targets = ["menuButton", "dropdownMenu", "menuButtonFarm", "dropdownMenuFarm"];
     connect() {
         this.setupEventListeners();
       }
@@ -22,3 +22,4 @@ export default class extends Controller {
         }
       }
 }
+

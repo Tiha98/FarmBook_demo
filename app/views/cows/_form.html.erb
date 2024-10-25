@@ -74,10 +74,10 @@
       <div class="sm:col-span-2 grid place-items-center">
         <%= form.submit "Submit", class: "mt-10 block w-3/4 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
         <br>
-        <%= link_to "Back to cows", cows_path, class:"py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" %>
+        <%= render(ButtonComponent.new(text: "Back to cows", url: cows_path, button_type: :secondary)) %>
         <br>
         <% if cow.id %>
-        <%= link_to "Show this cow", cow, class:"py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"%> 
+        <%= render(ButtonComponent.new(text: "Show this cow", url: cow_path, button_type: :secondary)) %>
         <% end %>
       </div>
     </div>

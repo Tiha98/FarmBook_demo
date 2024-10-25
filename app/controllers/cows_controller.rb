@@ -3,8 +3,8 @@ class CowsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /cows or /cows.json
-  def index
-    @cows = current_user.cows.all
+  def index 
+    @cows = current_user.cows.all.page(params[:page]).per(10)
     @q = Cow.ransack(params[:q])
   end
 
